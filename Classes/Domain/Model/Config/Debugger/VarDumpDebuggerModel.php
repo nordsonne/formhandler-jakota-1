@@ -26,6 +26,23 @@ use Typoheads\Formhandler\Debugger\VarDumpDebugger;
  *   * - **TypoScript Path**
  *     - plugin.tx_formhandler_form.settings.predefinedForms.[x].debuggers.VarDumpDebugger
  *
+ *..  code-block:: typoscript
+ *
+ *    Example Code:
+ *
+ *    plugin.tx_formhandler_form.settings.predefinedForms.devExample {
+ *      debuggers {
+ *        VarDumpDebugger {
+ *          model = VarDumpDebuggerModel
+ *          config {
+ *            active = true
+ *            maxDepth = 20
+ *          }
+ *        }
+ *      }
+ *    }
+ *
+ *
  ***Properties**
  *
  *.. list-table::

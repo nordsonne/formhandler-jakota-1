@@ -18,7 +18,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="VarDumpDebugger" href="VarDumpDebugger.html" />
+    <link rel="next" title="PrintToScreenDebugger" href="PrintToScreenDebugger.html" />
     <link rel="prev" title="General Options" href="../GeneralOptions/Index.html" /> 
 </head>
 
@@ -39,6 +39,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Migration/Index.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../GeneralOptions/Index.html">General Options</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Debuggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PrintToScreenDebugger.html">PrintToScreenDebugger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VarDumpDebugger.html">VarDumpDebugger</a></li>
 </ul>
 </li>
@@ -86,21 +87,12 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-typoscript notranslate"><div class="highlight"><pre><span></span>Example Code<span class="o">:</span>
-
-<span class="nb">plugin</span><span class="p">.</span>tx_formhandler_form<span class="p">.</span>settings<span class="p">.</span>predefinedForms<span class="p">.</span>devExample <span class="ss">{</span>
-  debuggers <span class="ss">{</span>
-    VarDumpDebugger <span class="ss">{</span>
-      model <span class="o">=</span> VarDumpDebuggerModel
-      config <span class="ss">{</span>
-        active <span class="o">=</span> true
-        maxDepth <span class="o">=</span> <span class="mi">20</span>
-      <span class="ss">}</span>
-    <span class="ss">}</span>
-  <span class="ss">}</span>
-<span class="ss">}</span>
-</pre></div>
-</div>
+<dl class="simple">
+<dt><a class="reference internal" href="PrintToScreenDebugger.html#printtoscreendebugger"><span class="std std-ref">PrintToScreenDebugger</span></a></dt><dd><p>Will print out the debug messages to screen.</p>
+</dd>
+<dt><a class="reference internal" href="VarDumpDebugger.html#vardumpdebugger"><span class="std std-ref">VarDumpDebugger</span></a></dt><dd><p>Will print out the debug messages to screen as VarDump.</p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -110,7 +102,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../GeneralOptions/Index.html" class="btn btn-neutral float-left" title="General Options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="VarDumpDebugger.html" class="btn btn-neutral float-right" title="VarDumpDebugger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="PrintToScreenDebugger.html" class="btn btn-neutral float-right" title="PrintToScreenDebugger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

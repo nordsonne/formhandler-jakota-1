@@ -26,26 +26,17 @@ use Typoheads\Formhandler\Debugger\AbstractDebugger;
  *   * - **TypoScript Path**
  *     - plugin.tx_formhandler_form.settings.predefinedForms.FormName
  *
- *..  code-block:: typoscript
+ *:ref:`PrintToScreenDebugger`
+ *  Will print out the debug messages to screen.
  *
- *    Example Code:
- *
- *    plugin.tx_formhandler_form.settings.predefinedForms.devExample {
- *      debuggers {
- *        VarDumpDebugger {
- *          model = VarDumpDebuggerModel
- *          config {
- *            active = true
- *            maxDepth = 20
- *          }
- *        }
- *      }
- *    }
+ *:ref:`VarDumpDebugger`
+ *  Will print out the debug messages to screen as VarDump.
  *
  *.. toctree::
  *   :maxdepth: 2
  *   :hidden:
  *
+ *   PrintToScreenDebugger
  *   VarDumpDebugger
  *
  *Documentation:End

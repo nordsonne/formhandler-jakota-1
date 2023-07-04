@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VarDumpDebugger &mdash; Formhandler 9.0.0 (Alpha) documentation</title>
+  <title>PrintToScreenDebugger &mdash; Formhandler 9.0.0 (Alpha) documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Error Checks" href="../ErrorChecks/Index.html" />
-    <link rel="prev" title="PrintToScreenDebugger" href="PrintToScreenDebugger.html" /> 
+    <link rel="next" title="VarDumpDebugger" href="VarDumpDebugger.html" />
+    <link rel="prev" title="Debuggers" href="Index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,8 +39,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Migration/Index.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../GeneralOptions/Index.html">General Options</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="Index.html">Debuggers</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="PrintToScreenDebugger.html">PrintToScreenDebugger</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">VarDumpDebugger</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PrintToScreenDebugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VarDumpDebugger.html">VarDumpDebugger</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ErrorChecks/Index.html">Error Checks</a></li>
@@ -64,9 +64,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../Index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="Index.html">Debuggers</a></li>
-      <li class="breadcrumb-item active">VarDumpDebugger</li>
+      <li class="breadcrumb-item active">PrintToScreenDebugger</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/Debuggers/VarDumpDebugger.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Debuggers/PrintToScreenDebugger.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,9 +74,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="vardumpdebugger">
-<span id="id1"></span><h1>VarDumpDebugger<a class="headerlink" href="#vardumpdebugger" title="Permalink to this heading">¶</a></h1>
-<p>Will print out the debug messages to screen as VarDump.</p>
+  <section id="printtoscreendebugger">
+<span id="id1"></span><h1>PrintToScreenDebugger<a class="headerlink" href="#printtoscreendebugger" title="Permalink to this heading">¶</a></h1>
+<p>Will print out the debug messages to screen.</p>
 <table class="docutils align-left" style="width: 100%">
 <colgroup>
 <col style="width: 20%" />
@@ -84,7 +84,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>TypoScript Path</strong></p></td>
-<td><p>plugin.tx_formhandler_form.settings.predefinedForms.[x].debuggers.VarDumpDebugger</p></td>
+<td><p>plugin.tx_formhandler_form.settings.predefinedForms.[x].debuggers.PrintToScreenDebugger</p></td>
 </tr>
 </tbody>
 </table>
@@ -92,11 +92,15 @@
 
 <span class="nb">plugin</span><span class="p">.</span>tx_formhandler_form<span class="p">.</span>settings<span class="p">.</span>predefinedForms<span class="p">.</span>devExample <span class="ss">{</span>
   debuggers <span class="ss">{</span>
-    VarDumpDebugger <span class="ss">{</span>
-      model <span class="o">=</span> VarDumpDebuggerModel
+    PrintToScreenDebugger <span class="ss">{</span>
+      model <span class="o">=</span> PrintToScreenDebuggerModel
       config <span class="ss">{</span>
         active <span class="o">=</span> true
-        maxDepth <span class="o">=</span> <span class="mi">20</span>
+        severityWrap <span class="ss">{</span>
+          <span class="mi">1</span> <span class="o">=</span> <span class="s">&lt;span</span> <span class="s">class=&quot;level-info&quot;&gt;</span><span class="o">|</span><span class="s">&lt;/span&gt;</span>
+          <span class="mi">2</span> <span class="o">=</span> <span class="s">&lt;span</span> <span class="s">class=&quot;level-warning&quot;&gt;</span><span class="o">|</span><span class="s">&lt;/span&gt;</span>
+          <span class="mi">3</span> <span class="o">=</span> <span class="s">&lt;span</span> <span class="s">class=&quot;level-error&quot;&gt;</span><span class="o">|</span><span class="s">&lt;/span&gt;</span>
+        <span class="ss">}</span>
       <span class="ss">}</span>
     <span class="ss">}</span>
   <span class="ss">}</span>
@@ -133,8 +137,8 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>ansiColors</strong></p></td>
-<td><p>If True, ANSI color codes is added to the output, if False the debug output is not colored.</p></td>
+<tr class="row-odd"><td><p><strong>messageWrap</strong></p></td>
+<td><p>Wrap for a single debug message</p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td></td>
@@ -143,10 +147,10 @@
 <td><p>False</p></td>
 </tr>
 <tr class="row-even"><td><p><em>Data Type</em></p></td>
-<td><p>Boolean</p></td>
+<td><p>String</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>Default</em></p></td>
-<td><p>True</p></td>
+<td><p>&lt;div style=”font-weight:bold;”&gt;|&lt;/div&gt;</p></td>
 </tr>
 </tbody>
 </table>
@@ -156,8 +160,8 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>blacklistedClassNames</strong></p></td>
-<td><p>An array of class names (RegEx) to be filtered. Default is an array of some common class names.</p></td>
+<tr class="row-odd"><td><p><strong>sectionHeaderWrap</strong></p></td>
+<td><p>Wrap for a section header</p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td></td>
@@ -166,10 +170,33 @@
 <td><p>False</p></td>
 </tr>
 <tr class="row-even"><td><p><em>Data Type</em></p></td>
-<td><p>Array&lt;Integer, String&gt;|Null</p></td>
+<td><p>String</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>Default</em></p></td>
-<td><p>Null</p></td>
+<td><p>&lt;h2 style=”background:#333; color:#cdcdcd; height:23px; padding:10px 7px 7px 7px; margin:0;”&gt;|&lt;/h2&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-left" style="width: 100%">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>sectionWrap</strong></p></td>
+<td><p>Wrap for a section (e.g. all log messages of a component are wrapped in a section)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mandatory</em></p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Data Type</em></p></td>
+<td><p>String</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Default</em></p></td>
+<td><p>&lt;div style=”border:1px solid #ccc; padding:7px; background:#dedede;”&gt;|&lt;/div&gt;</p></td>
 </tr>
 </tbody>
 </table>
@@ -180,7 +207,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>blacklistedPropertyNames</strong></p></td>
-<td><p>An array of property names and/or array keys (RegEx) to be filtered. Default is an array of some common property names.</p></td>
+<td><p>Use this to configure different appearance of different log severity levels.</p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td></td>
@@ -189,102 +216,20 @@
 <td><p>False</p></td>
 </tr>
 <tr class="row-even"><td><p><em>Data Type</em></p></td>
-<td><p>Array&lt;Integer, String&gt;|Null</p></td>
+<td><p>Array&lt;Integer, String&gt;</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>Default</em></p></td>
-<td><p>Null</p></td>
+<td><div class="line-block">
+<div class="line">severityWrap {</div>
+<div class="line">1 = &lt;span class=”level-info”&gt;|&lt;/span&gt;</div>
+<div class="line">2 = &lt;span class=”level-warning”&gt;|&lt;/span&gt;</div>
+<div class="line">3 = &lt;span class=”level-error”&gt;|&lt;/span&gt;</div>
+<div class="line">}</div>
+</div>
+</td>
 </tr>
-</tbody>
-</table>
-<table class="docutils align-left" style="width: 100%">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>maxDepth</strong></p></td>
-<td><p>Sets the max recursion depth of the dump. De- or increase the number according to your needs and memory limit.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><em>Mandatory</em></p></td>
-<td><p>False</p></td>
-</tr>
-<tr class="row-even"><td><p><em>Data Type</em></p></td>
-<td><p>Integer</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Default</em></p></td>
-<td><p>8</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-left" style="width: 100%">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>plainText</strong></p></td>
-<td><p>if True, the dump is in plain text, if False the debug output is in HTML format</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><em>Mandatory</em></p></td>
-<td><p>False</p></td>
-</tr>
-<tr class="row-even"><td><p><em>Data Type</em></p></td>
-<td><p>Boolean</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Default</em></p></td>
-<td><p>False</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-left" style="width: 100%">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>return</strong></p></td>
-<td><p>If True, the dump is returned for custom post-processing (e.g. embed in custom HTML). If False, the dump is directly displayed.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><em>Mandatory</em></p></td>
-<td><p>False</p></td>
-</tr>
-<tr class="row-even"><td><p><em>Data Type</em></p></td>
-<td><p>Boolean</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Default</em></p></td>
-<td><p>False</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-left" style="width: 100%">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>title</strong></p></td>
-<td><p>Optional custom title for the debug output</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><em>Mandatory</em></p></td>
-<td><p>False</p></td>
-</tr>
-<tr class="row-even"><td><p><em>Data Type</em></p></td>
-<td><p>String|Null</p></td>
-</tr>
-<tr class="row-odd"><td><p><em>Default</em></p></td>
-<td><p>Null</p></td>
+<tr class="row-even"><td><p><em>Note</em></p></td>
+<td><p>The key Integer in Array&lt;Integer, String&gt; is the severity level (1-3).</p></td>
 </tr>
 </tbody>
 </table>
@@ -294,8 +239,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="PrintToScreenDebugger.html" class="btn btn-neutral float-left" title="PrintToScreenDebugger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../ErrorChecks/Index.html" class="btn btn-neutral float-right" title="Error Checks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Index.html" class="btn btn-neutral float-left" title="Debuggers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="VarDumpDebugger.html" class="btn btn-neutral float-right" title="VarDumpDebugger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
