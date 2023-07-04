@@ -10,12 +10,12 @@ use Typoheads\Formhandler\Domain\Model\Config\Debugger\VarDumpDebuggerModel;
 class VarDumpDebugger extends AbstractDebugger {
   public function processDebugLog(
     array $debugLog,
-  ): void {
+  ): ?string {
     if (!$this->debuggerConfig instanceof VarDumpDebuggerModel) {
-      return;
+      return null;
     }
     if (!$this->debuggerConfig->active || 'html' != $this->formConfig->responseType) {
-      return;
+      return null;
     }
 
     DebuggerUtility::var_dump(
@@ -28,5 +28,7 @@ class VarDumpDebugger extends AbstractDebugger {
       $this->debuggerConfig->blacklistedClassNames,
       $this->debuggerConfig->blacklistedPropertyNames,
     );
+
+    return null;
   }
 }

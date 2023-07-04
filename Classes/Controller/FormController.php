@@ -672,11 +672,12 @@ class FormController extends ActionController {
       }
     }
 
-    $this->formConfig->processDebugLog();
+    $debugOutput = $this->formConfig->processDebugLog();
 
     // Prepare output
     $this->view->assignMultiple(
       [
+        'debugOutput' => $debugOutput,
         'fieldsRequired' => $this->fieldsRequired,
         'fieldsErrors' => $this->formConfig->fieldsErrors,
         'fieldSets' => $this->formConfig->fieldSets,

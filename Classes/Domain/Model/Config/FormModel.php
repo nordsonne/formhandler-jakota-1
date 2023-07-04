@@ -89,7 +89,7 @@ class FormModel {
   /** @var AbstractDebugger[] */
   private array $debuggers = [];
 
-  /** @var array<string, array<int, array{message: string, severity: Severity, data: array<int|string, mixed>|object|string}>> */
+  /** @var array<string, array<int, array{message: string, severity: int, data: array<int|string, mixed>|object|string}>> */
   private array $debugLog = [];
 
   /**
@@ -214,10 +214,10 @@ class FormModel {
    *
    * @param string                                                $key        The message or key in language file (locallang_debug.xlf)
    * @param array<int, null|bool|float|int|string>                $printfArgs if the message contains placeholders for usage with printf, pass the replacement values in this array
-   * @param Severity                                              $severity   The severity of the message. Valid values are Severity::Info, Severity::Warning and Severity::Error
+   * @param int                                                   $severity   The severity of the message. Valid values are Severity::Info, Severity::Warning and Severity::Error
    * @param array<int|string, mixed>|bool|float|int|object|string $data       Additional debug data (e.g. the array of GET/POST values)
    */
-  public function debugMessage(string $key, array $printfArgs = [], Severity $severity = Severity::Info, array|bool|float|int|object|string $data = []): void {
+  public function debugMessage(string $key, array $printfArgs = [], int $severity = Severity::Info, array|bool|float|int|object|string $data = []): void {
     if (empty($this->debuggers)) {
       return;
     }
@@ -246,9 +246,16 @@ class FormModel {
     $this->debugLog[$section][] = ['message' => $message, 'severity' => $severity, 'data' => $data];
   }
 
-  public function processDebugLog(): void {
+  public function processDebugLog(): ?string {
+    $debugOutput = null;
+
     foreach ($this->debuggers as $debugger) {
-      $debugger->processDebugLog($this->debugLog);
+      $debuggerOutput = $debugger->processDebugLog($this->debugLog);
+      if (null !== $debuggerOutput) {
+        $debugOutput .= $debuggerOutput;
+      }
     }
+
+    return $debugOutput;
   }
 }

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Typoheads\Formhandler\Definitions;
 
-enum Severity: int {
-  case Error = 3;
+class Severity {
+  public const Error = 3;
 
-  case Info = 1;
+  public const Info = 1;
 
-  case Warning = 2;
+  public const Warning = 2;
 }
