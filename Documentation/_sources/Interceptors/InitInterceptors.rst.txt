@@ -1,0 +1,22 @@
+
+.. _initinterceptors:
+
+================
+InitInterceptors
+================
+
+The init interceptors are called before every time the form is displayed.
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **TypoScript Path**
+     - plugin.tx_formhandler_form.settings.predefinedForms.[x].initInterceptors
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:

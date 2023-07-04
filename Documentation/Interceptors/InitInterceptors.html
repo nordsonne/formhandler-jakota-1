@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Error Checks &mdash; Formhandler 9.0.0 (Alpha) documentation</title>
+  <title>InitInterceptors &mdash; Formhandler 9.0.0 (Alpha) documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="General" href="General.html" />
-    <link rel="prev" title="VarDumpDebugger" href="../Debuggers/VarDumpDebugger.html" /> 
+    <link rel="next" title="SaveInterceptors" href="SaveInterceptors.html" />
+    <link rel="prev" title="Interceptors" href="Index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,13 +39,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../Migration/Index.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../GeneralOptions/Index.html">General Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Debuggers/Index.html">Debuggers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Error Checks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="General.html">General</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ErrorChecks/Index.html">Error Checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Finishers/Index.html">Finishers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Index.html">Interceptors</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">InitInterceptors</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Finishers/Index.html">Finishers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Interceptors/Index.html">Interceptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SaveInterceptors.html">SaveInterceptors</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../Loggers/Index.html">Loggers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PreProcessors/Index.html">PreProcessors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Validators/Index.html">Validators</a></li>
@@ -65,9 +67,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../Index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Error Checks</li>
+          <li class="breadcrumb-item"><a href="Index.html">Interceptors</a></li>
+      <li class="breadcrumb-item active">InitInterceptors</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/ErrorChecks/Index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Interceptors/InitInterceptors.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -75,8 +78,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="error-checks">
-<span id="id1"></span><h1>Error Checks<a class="headerlink" href="#error-checks" title="Permalink to this heading">¶</a></h1>
+  <section id="initinterceptors">
+<span id="id1"></span><h1>InitInterceptors<a class="headerlink" href="#initinterceptors" title="Permalink to this heading">¶</a></h1>
+<p>The init interceptors are called before every time the form is displayed.</p>
 <table class="docutils align-left" style="width: 100%">
 <colgroup>
 <col style="width: 20%" />
@@ -84,16 +88,10 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>TypoScript Path</strong></p></td>
-<td><p>plugin.tx_formhandler_form.settings.predefinedForms.[x].steps.[x].validators.[x].config.fields.[x].errorChecks</p></td>
+<td><p>plugin.tx_formhandler_form.settings.predefinedForms.[x].initInterceptors</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="simple">
-<dt><a class="reference internal" href="General.html#general"><span class="std std-ref">General</span></a></dt><dd><p>These checks perform basic validation routines like checking if a field is filled out or if a field value is a valid email address.</p>
-</dd>
-<dt><a class="reference internal" href="Strings.html#strings"><span class="std std-ref">Strings</span></a></dt><dd><p>These error checks allow various checks suitable for strings, f.e. checking if a string is at least 10 characters long or if a string contains a specific word.</p>
-</dd>
-</dl>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -102,8 +100,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../Debuggers/VarDumpDebugger.html" class="btn btn-neutral float-left" title="VarDumpDebugger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="General.html" class="btn btn-neutral float-right" title="General" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Index.html" class="btn btn-neutral float-left" title="Interceptors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SaveInterceptors.html" class="btn btn-neutral float-right" title="SaveInterceptors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
