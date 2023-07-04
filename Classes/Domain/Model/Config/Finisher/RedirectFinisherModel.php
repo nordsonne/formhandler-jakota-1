@@ -135,7 +135,7 @@ class RedirectFinisherModel extends AbstractFinisherModel {
    * @param array<string, mixed> $settings
    */
   public function __construct(array $settings) {
-    $this->returns = boolval($settings['returns'] ?? false);
+    $this->returns = filter_var($settings['returns'] ?? false, FILTER_VALIDATE_BOOLEAN);
     $additionalParams = [];
     if (is_array($settings['additionalParams'] ?? false)) {
       foreach ($settings['additionalParams'] as $queryParam => $valueOrFieldName) {
@@ -144,7 +144,7 @@ class RedirectFinisherModel extends AbstractFinisherModel {
     }
     $this->additionalParams = $additionalParams;
 
-    $this->correctRedirectUrl = boolval($settings['correctRedirectUrl'] ?? false);
+    $this->correctRedirectUrl = filter_var($settings['correctRedirectUrl'] ?? false, FILTER_VALIDATE_BOOLEAN);
     $this->headerStatusCode = intval($settings['headerStatusCode'] ?? 303);
   }
 

@@ -801,7 +801,7 @@ class FormController extends ActionController {
 
   private function formSubmitted(): bool {
     if (is_array($this->parsedBody[FormhandlerExtensionConfig::EXTENSION_KEY] ?? false)) {
-      return boolval($this->parsedBody[FormhandlerExtensionConfig::EXTENSION_KEY]['submitted'] ?? false);
+      return filter_var($this->parsedBody[FormhandlerExtensionConfig::EXTENSION_KEY]['submitted'] ?? false, FILTER_VALIDATE_BOOLEAN);
     }
 
     return false;

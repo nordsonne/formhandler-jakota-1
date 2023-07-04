@@ -36,7 +36,7 @@ class FieldModel {
     }
     $this->fields = $fields;
 
-    $this->fieldArray = boolval($settings['fieldArray'] ?? false);
+    $this->fieldArray = filter_var($settings['fieldArray'] ?? false, FILTER_VALIDATE_BOOLEAN);
 
     if (!isset($settings['errorChecks']) || !is_array($settings['errorChecks'])) {
       $this->errorChecks = [];

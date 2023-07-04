@@ -24,7 +24,7 @@ class MailFinisherModel extends AbstractFinisherModel {
    * @param array<string, mixed> $settings
    */
   public function __construct(array $settings) {
-    $this->returns = boolval($settings['returns'] ?? false);
+    $this->returns = filter_var($settings['returns'] ?? false, FILTER_VALIDATE_BOOLEAN);
   }
 
   public function class(): string {
