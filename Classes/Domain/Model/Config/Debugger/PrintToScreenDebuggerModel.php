@@ -75,6 +75,24 @@ use Typoheads\Formhandler\Definitions\Severity;
  *   :header-rows: 0
  *   :stub-columns: 0
  *
+ *   * - **maxDepth**
+ *     - Sets the max recursion depth of the dump. De- or increase the number according to your needs and memory limit.
+ *   * -
+ *     -
+ *   * - *Mandatory*
+ *     - False
+ *   * - *Data Type*
+ *     - Integer
+ *   * - *Default*
+ *     - 8
+ *
+ *.. list-table::
+ *   :align: left
+ *   :width: 100%
+ *   :widths: 20 80
+ *   :header-rows: 0
+ *   :stub-columns: 0
+ *
  *   * - **messageWrap**
  *     - Wrap for a single debug message
  *   * -
@@ -151,6 +169,8 @@ use Typoheads\Formhandler\Definitions\Severity;
 class PrintToScreenDebuggerModel extends AbstractDebuggerModel {
   public readonly bool $active;
 
+  public readonly int $maxDepth;
+
   public readonly string $messageWrap;
 
   public readonly string $sectionHeaderWrap;
@@ -165,6 +185,8 @@ class PrintToScreenDebuggerModel extends AbstractDebuggerModel {
    */
   public function __construct(array $config) {
     $this->active = filter_var($config['active'] ?? false, FILTER_VALIDATE_BOOLEAN);
+
+    $this->maxDepth = intval($config['maxDepth'] ?? 8);
 
     $this->messageWrap = strval($config['messageWrap'] ?? '<div style="font-weight:bold;">|</div>');
     $this->sectionHeaderWrap = strval($config['sectionHeaderWrap'] ?? '<h2 style="background:#333; color:#cdcdcd;height:23px;padding:10px 7px 7px 7px;margin:0;">|</h2>');

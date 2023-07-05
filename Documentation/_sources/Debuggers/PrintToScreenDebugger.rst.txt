@@ -65,6 +65,24 @@ Will print out the debug messages to screen.
    :header-rows: 0
    :stub-columns: 0
 
+   * - **maxDepth**
+     - Sets the max recursion depth of the dump. De- or increase the number according to your needs and memory limit.
+   * -
+     -
+   * - *Mandatory*
+     - False
+   * - *Data Type*
+     - Integer
+   * - *Default*
+     - 8
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
    * - **messageWrap**
      - Wrap for a single debug message
    * -

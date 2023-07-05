@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Typoheads\Formhandler\Debugger;
 
-use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Typoheads\Formhandler\Domain\Model\Config\Debugger\PrintToScreenDebuggerModel;
 
 /**
@@ -46,7 +46,7 @@ class PrintToScreenDebugger extends AbstractDebugger {
         $sectionContent .= str_replace('|', $message, $this->debuggerConfig->messageWrap);
 
         if ($messageData['data']) {
-          $sectionContent .= DebugUtility::viewArray($messageData['data']);
+          $sectionContent .= trim(DebuggerUtility::var_dump($messageData['data'], '', $this->debuggerConfig->maxDepth, false, false, true));
           $sectionContent .= '<br />';
         }
       }
