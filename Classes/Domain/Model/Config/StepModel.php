@@ -8,6 +8,48 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Typoheads\Formhandler\Domain\Model\Config\Validator\AbstractValidatorModel;
 use Typoheads\Formhandler\Utility\Utility;
 
+/** Documentation:Start:GeneralOptions/Step.rst.
+ *
+ *.. _step:
+ *
+ *====
+ *Step
+ *====
+ *
+ *.. list-table::
+ *   :align: left
+ *   :width: 100%
+ *   :widths: 20 80
+ *   :header-rows: 0
+ *   :stub-columns: 0
+ *
+ *   * - **templateForm**
+ *     - The template for a given step.
+ *   * -
+ *     -
+ *   * - *Mandatory*
+ *     - False
+ *   * - *Data Type*
+ *     - String
+ *
+ *.. list-table::
+ *   :align: left
+ *   :width: 100%
+ *   :widths: 20 80
+ *   :header-rows: 0
+ *   :stub-columns: 0
+ *
+ *   * - **validators**
+ *     - A list of :ref:`Validators` for a given step.
+ *   * -
+ *     -
+ *   * - *Mandatory*
+ *     - False
+ *   * - *Data Type*
+ *     - Array<String, :ref:`Validator <Validators>`>
+ *
+ *Documentation:End
+ */
 class StepModel {
   /** @var AbstractValidatorModel[] */
   public readonly array $validators;

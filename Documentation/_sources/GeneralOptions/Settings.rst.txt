@@ -1,0 +1,164 @@
+
+.. include:: /Includes.rst.txt
+
+.. _settings:
+
+========
+Settings
+========
+
+All forms are build via TypoScript as predefined forms.
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **TypoScript Path**
+     - plugin.tx_formhandler_form.settings
+
+..  code-block:: typoscript
+
+    Example Code:
+
+    plugin.tx_formhandler_form.settings {
+      admin {
+        bccEmail =
+        bccName =
+        ccEmail =
+        ccName =
+        replyToEmail =
+        replyToName =
+        senderEmail =
+        senderName =
+        subject =
+        toEmail =
+      }
+      predefinedForm {
+        formId1 {
+        }
+        formId2 {
+        }
+        formId3 {
+        }
+      }
+      redirectPage = 12
+      requiredFields = 1.customer.firstname, 1.customer.lastname
+      responseType = html
+      user {
+        bccEmail =
+        bccName =
+        ccEmail =
+        ccName =
+        replyToEmail =
+        replyToName =
+        senderEmail =
+        senderName =
+        subject =
+        toEmail =
+      }
+    }
+
+**Properties**
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **admin**
+     - See :ref:`MailFinisher`
+   * -
+     -
+   * - *Mandatory*
+     - False
+   * - *Data Type*
+     - MailModel
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **predefinedForm**
+     - See :ref:`Predefined-Form`
+   * -
+     -
+   * - *Mandatory*
+     - True
+   * - *Data Type*
+     - Array<String, FormModel>
+   * - *Note*
+     - The key String of Array<String, FormModel> must be unique.
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **redirectPage**
+     - Page UID to redirect to after successful form submission.
+   * -
+     -
+   * - *Mandatory*
+     - True (only if :ref:`RedirectFinisher` is set)
+   * - *Data Type*
+     - Integer
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **requiredFields**
+     - Mandatory fields (enter names of form fields separated by ",")
+   * -
+     -
+   * - *Mandatory*
+     - False
+   * - *Data Type*
+     - String
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **responseType**
+     - Determents the form rendering either as HTML or JSON for headless response.
+   * -
+     -
+   * - *Mandatory*
+     - True
+   * - *Data Type*
+     - String
+   * - *Supported values*
+     - html, json
+
+.. list-table::
+   :align: left
+   :width: 100%
+   :widths: 20 80
+   :header-rows: 0
+   :stub-columns: 0
+
+   * - **user**
+     - See :ref:`MailFinisher`
+   * -
+     -
+   * - *Mandatory*
+     - False
+   * - *Data Type*
+     - MailModel

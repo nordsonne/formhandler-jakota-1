@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Debuggers &mdash; Formhandler 9.0.0 (Alpha) documentation</title>
+  <title>Step &mdash; Formhandler 9.0.0 (Alpha) documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PrintToScreenDebugger" href="PrintToScreenDebugger.html" />
-    <link rel="prev" title="Step" href="../GeneralOptions/Step.html" /> 
+    <link rel="next" title="Debuggers" href="../Debuggers/Index.html" />
+    <link rel="prev" title="Predefined Form" href="PredefinedForm.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,12 +37,13 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../Installation/Index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Migration/Index.html">Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../GeneralOptions/Index.html">General Options</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Debuggers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="PrintToScreenDebugger.html">PrintToScreenDebugger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VarDumpDebugger.html">VarDumpDebugger</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Index.html">General Options</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Settings.html">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PredefinedForm.html">Predefined Form</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Step</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Debuggers/Index.html">Debuggers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ErrorChecks/Index.html">Error Checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Finishers/Index.html">Finishers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Interceptors/Index.html">Interceptors</a></li>
@@ -65,9 +66,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../Index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Debuggers</li>
+          <li class="breadcrumb-item"><a href="Index.html">General Options</a></li>
+      <li class="breadcrumb-item active">Step</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/Debuggers/Index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/GeneralOptions/Step.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -75,36 +77,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="debuggers">
-<span id="id1"></span><h1>Debuggers<a class="headerlink" href="#debuggers" title="Permalink to this heading">¶</a></h1>
-<p>You can enter as many debuggers as you like. Each entry requires a model name of the debugger. Optionally you can enter a specific configuration for the debugger in the config section.</p>
+  <section id="step">
+<span id="id1"></span><h1>Step<a class="headerlink" href="#step" title="Permalink to this heading">¶</a></h1>
 <table class="docutils align-left" style="width: 100%">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>TypoScript Path</strong></p></td>
-<td><p>plugin.tx_formhandler_form.settings.predefinedForms.FormName</p></td>
+<tr class="row-odd"><td><p><strong>templateForm</strong></p></td>
+<td><p>The template for a given step.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mandatory</em></p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Data Type</em></p></td>
+<td><p>String</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="simple">
-<dt><a class="reference internal" href="PrintToScreenDebugger.html#printtoscreendebugger"><span class="std std-ref">PrintToScreenDebugger</span></a></dt><dd><p>Will print out the debug messages to screen.</p>
-</dd>
-<dt><a class="reference internal" href="VarDumpDebugger.html#vardumpdebugger"><span class="std std-ref">VarDumpDebugger</span></a></dt><dd><p>Will print out the debug messages to screen as VarDump.</p>
-</dd>
-</dl>
-<div class="toctree-wrapper compound">
-</div>
+<table class="docutils align-left" style="width: 100%">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>validators</strong></p></td>
+<td><p>A list of <a class="reference internal" href="../Validators/Index.html#validators"><span class="std std-ref">Validators</span></a> for a given step.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>Mandatory</em></p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Data Type</em></p></td>
+<td><p>Array&lt;String, <a class="reference internal" href="../Validators/Index.html#validators"><span class="std std-ref">Validator</span></a>&gt;</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../GeneralOptions/Step.html" class="btn btn-neutral float-left" title="Step" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="PrintToScreenDebugger.html" class="btn btn-neutral float-right" title="PrintToScreenDebugger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="PredefinedForm.html" class="btn btn-neutral float-left" title="Predefined Form" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Debuggers/Index.html" class="btn btn-neutral float-right" title="Debuggers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

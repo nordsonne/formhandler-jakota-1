@@ -106,18 +106,37 @@ use Typoheads\Formhandler\Utility\Utility;
  */
 /** Documentation:Start:GeneralOptions/Index.rst.
  *
- *.. include:: /Includes.rst.txt
- *
  *.. _general-options:
  *
  *===============
  *General Options
  *===============
  *
+ *
  *All forms are build via TypoScript as predefined forms.
  *
+ *
+ *.. toctree::
+ *   :maxdepth: 2
+ *   :hidden:
+ *
+ *   Settings
+ *   PredefinedForm
+ *   Step
+ *
+ *Documentation:End
+ */
+/** Documentation:Start:GeneralOptions/Settings.rst.
+ *
+ *.. include:: /Includes.rst.txt
+ *
+ *.. _settings:
+ *
+ *========
  *Settings
  *========
+ *
+ *All forms are build via TypoScript as predefined forms.
  *
  *.. list-table::
  *   :align: left
@@ -197,7 +216,7 @@ use Typoheads\Formhandler\Utility\Utility;
  *   :stub-columns: 0
  *
  *   * - **predefinedForm**
- *     - See `Predefined Forms <predefined-forms-label_>`__
+ *     - See :ref:`Predefined-Form`
  *   * -
  *     -
  *   * - *Mandatory*
@@ -272,296 +291,6 @@ use Typoheads\Formhandler\Utility\Utility;
  *     - False
  *   * - *Data Type*
  *     - MailModel
- *
- *Predefined Forms
- *================
- *
- *.. _predefined-forms-label:
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **TypoScript Path**
- *     - plugin.tx_formhandler_form.settings.predefinedForms.FormName
- *
- *..  code-block:: typoscript
- *
- *    Example Code:
- *
- *    plugin.tx_formhandler_form.settings.predefinedForms.devExample {
- *      formId = DevExampleForm
- *      formName = Dev Example Form
- *      formValuesPrefix = DevExampleForm
- *      langFileDefault = locallang_example_form.xlf
- *      templateForm = DevExample/Default
- *      templateMailHtml = DevExample/MailHtml
- *      templateMailText = DevExample/MailText
- *
- *      debuggers {
- *      }
- *
- *      steps {
- *        1 {
- *          templateForm = DevExampleForm/DevExampleHTMLStep1
- *          validators {
- *            DefaultValidator {
- *              model = DefaultValidatorModel
- *              config {
- *                messageLimit = 1
- *                messageLimits {
- *                  1.customer.email = 2
- *                }
- *                fields {
- *                  customer.fields {
- *                    firstname.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                      maxLength {
- *                        model = MaxLengthModel
- *                        maxLength = 20
- *                      }
- *                    }
- *                    lastname.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                      maxLength {
- *                        model = MaxLengthModel
- *                        maxLength = 20
- *                      }
- *                    }
- *                    streetAddress.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                    }
- *                    postalCode.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                    }
- *                    city.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                      maxLength {
- *                        model = MaxLengthModel
- *                        maxLength = 70
- *                      }
- *                    }
- *                    country.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                    }
- *                    telephone.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                      maxLength {
- *                        model = MaxLengthModel
- *                        maxLength = 20
- *                      }
- *                    }
- *                    email.errorChecks {
- *                      required {
- *                        model = RequiredModel
- *                      }
- *                      maxLength {
- *                        model = MaxLengthModel
- *                        maxLength = 50
- *                      }
- *                      email {
- *                        model = EmailModel
- *                      }
- *                    }
- *                  }
- *                }
- *              }
- *            }
- *          }
- *        }
- *      }
- *
- *      finishers {
- *        Mail {
- *          model = MailFinisherModel
- *        }
- *        Redirect {
- *          model = RedirectFinisherModel
- *          config {
- *            returns = true
- *            correctRedirectUrl = false
- *            additionalParams {
- *              postal_code = 1.customer.postalCode
- *              queryParam2 = valueIfNotFoundAsFieldName
- *            }
- *          }
- *        }
- *      }
- *    }
- *
- ***Properties**
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **formId**
- *     - Value of the id attribute of the form tag.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - True
- *   * - *Data Type*
- *     - String
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **formName**
- *     - Value of the name shown in the dropdown list.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - True
- *   * - *Data Type*
- *     - String
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **formValuesPrefix**
- *     - Prefix of form fields. Use this if you use a prefix for your forms to avoid conflicts with other plugins. Settings this option you will be able to use only the fieldname in all markers and do not need to add prefix.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - False
- *   * - *Data Type*
- *     - String
- *   * - *Default*
- *     - tx_formhandler_form
- *   * - *Note*
- *     - It is highly recommended to use this setting!
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **langFileDefault**
- *     - Path to default language file, can be altered as parameter by the form fields.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - False
- *   * - *Data Type*
- *     - String
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **debuggers**
- *     - A list of :ref:`Debuggers` for the predefined forms.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - False
- *   * - *Data Type*
- *     - Array<String, :ref:`Debugger <Debuggers>`>
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **steps**
- *     - You can split a form into as many steps as you like and add as many :ref:`Validators` as you like to each step, but even if the form has just one step it must be defined to add :ref:`Validators`.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - True (Only if a form has needs :ref:`Validators`, otherwise not.)
- *   * - *Data Type*
- *     - Array<Integer, `Step <step-label_>`__>
- *   * - *Note*
- *     - The key Integer in Array<Integer, `Step <step-label_>`__> starts at 1 for first step.
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **finishers**
- *     - A list of :ref:`Finishers` for the predefined forms.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - False
- *   * - *Data Type*
- *     - Array<String, :ref:`Finisher <Finishers>`>
- *
- *Step
- *====
- *
- *.. _step-label:
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **templateForm**
- *     - The template for a given step.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - False
- *   * - *Data Type*
- *     - String
- *
- *.. list-table::
- *   :align: left
- *   :width: 100%
- *   :widths: 20 80
- *   :header-rows: 0
- *   :stub-columns: 0
- *
- *   * - **validators**
- *     - A list of :ref:`Validators` for a given step.
- *   * -
- *     -
- *   * - *Mandatory*
- *     - False
- *   * - *Data Type*
- *     - Array<String, :ref:`Validator <Validators>`>
  *
  *Documentation:End
  */
